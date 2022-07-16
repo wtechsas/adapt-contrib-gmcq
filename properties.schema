@@ -1,0 +1,510 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria",
+      "default": "Preguntas de opción múltiple",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "ariaCorrectAnswer": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria para respuesta correcta",
+      "default": "La respuesta correcta es {{{correctAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón de 'respuesta correcta' (y solo hay una respuesta correcta)",
+      "translatable": true
+    },
+    "ariaCorrectAnswers": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria para respuestas incorrectas",
+      "default": "Las respuestas correctas son {{{correctAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón de 'respuesta correcta' (y hay más de una respuesta correcta)",
+      "translatable": true
+    },
+    "ariaUserAnswer": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria para la respuesta elegida",
+      "default": "La respuesta que elegiste fue {{{userAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón 'ocultar respuesta correcta' (y el alumno solo eligió una respuesta)",
+      "translatable": true
+    },
+    "ariaUserAnswers": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria para las respuestas elegidas",
+      "default": "Las respuestas que eligió fueron {{{userAnswer}}}",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón 'ocultar respuesta correcta' (y el alumno eligió más de una respuesta)",
+      "translatable": true
+    }
+  },
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Texto de instrucciones",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Este es el texto de instrucciones.",
+      "translatable": true
+    },
+    "_items": {
+      "type": "array",
+      "required": true,
+      "title": "Elementos del cuestionario",
+      "items": {
+        "type": "object",
+        "required": true,
+        "properties": {
+          "_graphic": {
+            "type": "object",
+            "required": true,
+            "title": "Imagen",
+            "properties": {
+              "large": {
+                "type": "string",
+                "required": true,
+                "default": "",
+                "title": "Grande",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Imagen de fondo grande: se usa en equipos de escritorio"
+              },
+              "small": {
+                "type": "string",
+                "required": true,
+                "default": "",
+                "title": "Pequeña",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Imagen de fondo pequeña: utilizada en dispositivos móviles"
+              },
+              "alt": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Text",
+                "title": "Texto alternativo",
+                "validators": [],
+                "help": "Una descripción de la imagen; requerido cuando tiene un significado que debe transmitirse al alumno. Evite la duplicación si el texto del elemento ya proporciona contexto y déjelo en blanco.",
+                "translatable": true
+              },
+              "attribution": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "title": "Descripción de la imagen",
+                "inputType": "Text",
+                "validators": [],
+                "help": "Texto que se mostrará superpuesta en la parte inferior de la imagen",
+                "translatable": true
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Texto del elemento",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Texto que se mostrará con la imagen",
+            "translatable": true
+          },
+          "_shouldBeSelected": {
+            "type": "boolean",
+            "required": true,
+            "default": false,
+            "title": "¿Respuesta correcta?",
+            "inputType": "Checkbox",
+            "validators": []
+          },
+          "_isPartlyCorrect": {
+            "type": "boolean",
+            "required": true,
+            "default": false,
+            "title": "¿Es sólo parcialmente correcta?",
+            "inputType": "Checkbox",
+            "validators": []
+          },
+          "feedback": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Comentarios específicos de la respuesta",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Cuando 'Elementos seleccionables' se establece en 1, esto se puede usar para dar al usuario comentarios específicos sobre la respuesta que seleccionó, si es incorrecta.",
+            "translatable": true
+          },
+          "_score": {
+            "type": "number",
+            "required": false,
+            "default": 0,
+            "title": "Puntua",
+            "inputType": "Number",
+            "validators": ["required", "number"],
+            "help": "Si la puntuación de elementos está habilitada, cuando se selecciona, las puntuaciones de los elementos se suman para dar la puntuación de la pregunta."
+          }
+        }
+      }
+    },
+    "_attempts": {
+      "type": "number",
+      "required": true,
+      "default": 1,
+      "title": "Intentos",
+      "inputType": "Number",
+      "validators": ["required", "number"],
+      "help": "Cuántos intentos tiene permitido el alumno."
+    },
+    "_canShowModelAnswer": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Mostrar respuesta modelo",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿Permitir que el usuario vea la 'respuesta modelo' si responde la pregunta incorrectamente?"
+    },
+    "_canShowFeedback": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Mostrar comentarios",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_canShowMarking": {
+      "type": "boolean",
+      "default": true,
+      "title": "Mostrar marcado",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Muestra marcas al terminar una pregunta."
+    },
+    "_shouldDisplayAttempts": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Mostrar intentos",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿Mostrar el número de intentos restantes?"
+    },
+    "_isRandom": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Aleatorizar respuestas",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_hasItemScoring": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Habilitar puntuación de elementos",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Cuando está desactivada, esta pregunta puntúa 0 si es incorrecta y 'Peso de la pregunta' si es correcta. Cuando está habilitada, esta pregunta puntúa sumando las puntuaciones de las opciones seleccionadas."
+    },
+    "_questionWeight": {
+      "type": "number",
+      "required": false,
+      "default": 1,
+      "title": "Peso de la pregunta",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "Cuando la puntuación de elementos está deshabilitada, esta es la puntuación de la pregunta para una respuesta correcta."
+    },
+    "_recordInteraction": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "title": "Grabar interacción",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Si está deshabilitado, el registro de las respuestas del usuario a esta pregunta en cmi.interactions en el LMS se deshabilitará solo para este componente."
+    },
+    "_columns": {
+      "type": "number",
+      "required": false,
+      "default": 0,
+      "title": "Columnas",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "Establecer el número de columnas. Si el valor es '0', el componente usa el diseño predeterminado."
+    },
+    "_selectable": {
+      "type": "number",
+      "required": true,
+      "default": 1,
+      "title": "Elementos seleccionables",
+      "inputType": "Number",
+      "validators": ["number", "required"],
+      "help": "¿Cuántos elementos se pueden seleccionar?"
+    },
+    "_feedback": {
+      "type": "object",
+      "required": false,
+      "title": "Comentarios",
+      "properties": {
+        "title": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Título del comentario",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Déjelo en blanco para que se muestre el título del componente en su lugar.",
+          "translatable": true
+        },
+        "correct": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Correcto",
+          "inputType": "TextArea",
+          "validators": [],
+          "help": "Comentarios de respuesta correcta para esta pregunta",
+          "translatable": true
+        },
+        "_incorrect": {
+          "type": "object",
+          "required": false,
+          "title": "Comentarios para respuestas incorrectas",
+          "properties": {
+            "final": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Final incorrecto",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Comentarios de respuesta incorrecta para el intento final",
+              "translatable": true
+            },
+            "notFinal": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "No final incorrecto",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta incorrecta para cualquier intento excepto el último intento. Si deja esto en blanco, se usará el comentario 'Final incorrecto' en su lugar.",
+              "translatable": true
+            }
+          }
+        },
+        "_partlyCorrect": {
+          "type": "object",
+          "required": false,
+          "properties": {
+            "final": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Final parcialmente correcto",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta parcialmente correcta para el intento final. Si deja esto en blanco, se usará el comentario 'Final incorrecto' en su lugar.",
+              "translatable": true
+            },
+            "notFinal": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "No final Parcialmente correcto",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Comentarios de respuesta parcialmente correctos para cualquier intento excepto el último intento. Si deja esto en blanco, se usará la retroalimentación 'Final parcialmente correcto' en su lugar.",
+              "translatable": true
+            }
+          }
+        }
+      }
+    },
+    "_buttons": {
+      "type": "object",
+      "title": "Botones",
+      "required": false,
+      "properties": {
+        "_submit": {
+          "type": "object",
+          "title": "Enviar",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para el botón Enviar",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Etiqueta Aria",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón de enviar",
+              "translatable": true
+            }
+          }
+        },
+        "_reset": {
+          "type": "object",
+          "title": "Reiniciar",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para el botón de reinicio",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Etiqueta Aria",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta Aria para el botón de reinicio",
+              "translatable": true
+            }
+          }
+        },
+        "_showCorrectAnswer": {
+          "type": "object",
+          "title": "Mostrar respuesta correcta",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para mostrar la respuesta del modelo",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Etiqueta Aria",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón Mostrar modelo de respuesta",
+              "translatable": true
+            }
+          }
+        },
+        "_hideCorrectAnswer": {
+          "type": "object",
+          "title": "Ocultar respuesta correcta",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para ocultar la respuesta del modelo",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Etiqueta Aria",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón de respuesta modelo oculto",
+              "translatable": true
+            }
+          }
+        },
+        "_showFeedback": {
+          "type": "object",
+          "title": "Mostrar comentarios",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para mostrar comentarios",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Etiqueta Aria",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón Mostrar comentarios",
+              "translatable": true
+            }
+          }
+        },
+        "remainingAttemptsText": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Texto de intentos restantes",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Se muestra cuando quedan varios intentos",
+          "translatable": true
+        },
+        "remainingAttemptText": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Texto de intento final",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Se muestra cuando queda un intento",
+          "translatable": true
+        }
+      }
+    }
+  }
+}

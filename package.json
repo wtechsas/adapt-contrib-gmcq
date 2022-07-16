@@ -1,0 +1,20 @@
+{
+  "name": "adapt-contrib-gmcq",
+  "version": "10.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-gmcq",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-gmcq/issues",
+  "component" : "gmcq",
+  "targetAttribute": "_gmcq",
+  "displayName" : "Pregunta gráfica de opción múltiple",
+  "description": "Un componente de preguntas de opción múltiple, con imágenes.",
+  "main": "/js/adapt-contrib-gmcq.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "pluginDependencies": {
+    "adapt-contrib-mcq": ">=4"
+  },
+  "license": "GPL-3.0"
+}
