@@ -186,16 +186,16 @@
       "type": "boolean",
       "required": true,
       "default": true,
-      "title": "Mostrar respuesta modelo",
+      "title": "Mostrar respuesta correcta",
       "inputType": "Checkbox",
       "validators": [],
-      "help": "¿Permitir que el usuario vea la 'respuesta modelo' si responde la pregunta incorrectamente?"
+      "help": "¿Permitir que el usuario vea la correcta si responde la pregunta incorrectamente?"
     },
     "_canShowFeedback": {
       "type": "boolean",
       "required": true,
       "default": true,
-      "title": "Mostrar comentarios",
+      "title": "Mostrar retroalimentación",
       "inputType": "Checkbox",
       "validators": []
     },
@@ -220,7 +220,7 @@
       "type": "boolean",
       "required": false,
       "default": false,
-      "title": "Aleatorizar respuestas",
+      "title": "Orden aleatorio",
       "inputType": "Checkbox",
       "validators": []
     },
@@ -246,7 +246,7 @@
       "type": "boolean",
       "required": false,
       "default": true,
-      "title": "Grabar interacción",
+      "title": "Guardar interacción",
       "inputType": "Checkbox",
       "validators": [],
       "help": "Si está deshabilitado, el registro de las respuestas del usuario a esta pregunta en cmi.interactions en el LMS se deshabilitará solo para este componente."
