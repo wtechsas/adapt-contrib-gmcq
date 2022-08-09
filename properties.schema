@@ -20,7 +20,7 @@
       "default": "La respuesta correcta es {{{correctAnswer}}}",
       "inputType": "Text",
       "validators": [],
-      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón de 'respuesta correcta' (y solo hay una respuesta correcta)",
+      "help": "Texto que anunciará el lector de pantalla cuando el estudiante seleccione el botón de 'respuesta correcta' (y solo hay una respuesta correcta)",
       "translatable": true
     },
     "ariaCorrectAnswers": {
@@ -30,7 +30,7 @@
       "default": "Las respuestas correctas son {{{correctAnswer}}}",
       "inputType": "Text",
       "validators": [],
-      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón de 'respuesta correcta' (y hay más de una respuesta correcta)",
+      "help": "Texto que anunciará el lector de pantalla cuando el estudiante seleccione el botón de 'respuesta correcta' (y hay más de una respuesta correcta)",
       "translatable": true
     },
     "ariaUserAnswer": {
@@ -40,7 +40,7 @@
       "default": "La respuesta que elegiste fue {{{userAnswer}}}",
       "inputType": "Text",
       "validators": [],
-      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón 'ocultar respuesta correcta' (y el alumno solo eligió una respuesta)",
+      "help": "Texto que anunciará el lector de pantalla cuando el estudiante seleccione el botón 'ocultar respuesta correcta' (y el estudiante solo eligió una respuesta)",
       "translatable": true
     },
     "ariaUserAnswers": {
@@ -50,7 +50,7 @@
       "default": "Las respuestas que eligió fueron {{{userAnswer}}}",
       "inputType": "Text",
       "validators": [],
-      "help": "Texto que anunciará el lector de pantalla cuando el alumno seleccione el botón 'ocultar respuesta correcta' (y el alumno eligió más de una respuesta)",
+      "help": "Texto que anunciará el lector de pantalla cuando el estudiante seleccione el botón 'ocultar respuesta correcta' (y el estudiante eligió más de una respuesta)",
       "translatable": true
     }
   },
@@ -110,7 +110,7 @@
                 "inputType": "Text",
                 "title": "Texto alternativo",
                 "validators": [],
-                "help": "Una descripción de la imagen; requerido cuando tiene un significado que debe transmitirse al alumno. Evite la duplicación si el texto del elemento ya proporciona contexto y déjelo en blanco.",
+                "help": "Una descripción de la imagen; requerido cuando tiene un significado que debe transmitirse al estudiante. Evite la duplicación si el texto del elemento ya proporciona contexto y déjelo en blanco.",
                 "translatable": true
               },
               "attribution": {
@@ -180,7 +180,7 @@
       "title": "Intentos",
       "inputType": "Number",
       "validators": ["required", "number"],
-      "help": "Cuántos intentos tiene permitido el alumno."
+      "help": "Cuántos intentos tiene permitido el estudiante."
     },
     "_canShowModelAnswer": {
       "type": "boolean",
