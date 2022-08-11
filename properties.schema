@@ -76,6 +76,7 @@
       "type": "array",
       "required": true,
       "title": "Elementos del cuestionario",
+      "help": "Corresponde a las opciones que estaran disponibles en el cuestionario.",
       "items": {
         "type": "object",
         "required": true,
@@ -155,7 +156,7 @@
             "type": "string",
             "required": false,
             "default": "",
-            "title": "Comentarios específicos de la respuesta",
+            "title": "Retroalimentación específica de la respuesta",
             "inputType": "Text",
             "validators": [],
             "help": "Cuando 'Elementos seleccionables' se establece en 1, esto se puede usar para dar al usuario comentarios específicos sobre la respuesta que seleccionó, si es incorrecta.",
@@ -165,7 +166,7 @@
             "type": "number",
             "required": false,
             "default": 0,
-            "title": "Puntua",
+            "title": "Puntuación",
             "inputType": "Number",
             "validators": ["required", "number"],
             "help": "Si la puntuación de elementos está habilitada, cuando se selecciona, las puntuaciones de los elementos se suman para dar la puntuación de la pregunta."
@@ -197,7 +198,8 @@
       "default": true,
       "title": "Mostrar retroalimentación",
       "inputType": "Checkbox",
-      "validators": []
+      "validators": [],
+      "help": "Muestra una realimentación dependiendo de la respuesta del estudiante."
     },
     "_canShowMarking": {
       "type": "boolean",
@@ -272,13 +274,13 @@
     "_feedback": {
       "type": "object",
       "required": false,
-      "title": "Comentarios",
+      "title": "Retroalimentación",
       "properties": {
         "title": {
           "type": "string",
           "required": false,
           "default": "",
-          "title": "Título del comentario",
+          "title": "Título de la realimentación",
           "inputType": "Text",
           "validators": [],
           "help": "Déjelo en blanco para que se muestre el título del componente en su lugar.",
@@ -361,7 +363,7 @@
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Enviar",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
@@ -371,7 +373,7 @@
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Enviar",
               "title": "Etiqueta Aria",
               "inputType": "QuestionButton",
               "validators": [],
@@ -387,7 +389,7 @@
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Reiniciar",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
@@ -397,7 +399,7 @@
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Reiniciar",
               "title": "Etiqueta Aria",
               "inputType": "QuestionButton",
               "validators": [],
@@ -413,7 +415,7 @@
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ver respuesta correcta",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
@@ -423,7 +425,7 @@
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ver respuesta correcta",
               "title": "Etiqueta Aria",
               "inputType": "QuestionButton",
               "validators": [],
@@ -439,7 +441,7 @@
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ocultar respuesta correcta",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
@@ -449,7 +451,7 @@
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ocultar respuesta correcta",
               "title": "Etiqueta Aria",
               "inputType": "QuestionButton",
               "validators": [],
@@ -460,12 +462,12 @@
         },
         "_showFeedback": {
           "type": "object",
-          "title": "Mostrar comentarios",
+          "title": "Mostrar retroalimentación",
           "properties": {
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ver retroalimentación",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
@@ -475,7 +477,7 @@
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "",
+              "default": "Ver retroalimentación",
               "title": "Etiqueta Aria",
               "inputType": "QuestionButton",
               "validators": [],
@@ -487,7 +489,7 @@
         "remainingAttemptsText": {
           "type": "string",
           "required": false,
-          "default": "",
+          "default": "Intentos restantes",
           "title": "Texto de intentos restantes",
           "inputType": "QuestionButton",
           "validators": [],
@@ -497,7 +499,7 @@
         "remainingAttemptText": {
           "type": "string",
           "required": false,
-          "default": "",
+          "default": "Último intento",
           "title": "Texto de intento final",
           "inputType": "QuestionButton",
           "validators": [],
