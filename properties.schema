@@ -123,6 +123,16 @@
                 "validators": [],
                 "help": "Texto que se mostrará superpuesta en la parte inferior de la imagen",
                 "translatable": true
+              },
+              "porcentaje": {
+                "type":"string",
+                "required": false,
+                "default": "",
+                "title": "Porcentaje de ancho para la imagen",
+                "inputType": "Text",
+                "validators": [],
+                "help": "Establece el porcentaje máximo del ancho que tendrá la imagen al mostrarse",
+                "translatable": true
               }
             }
           },
